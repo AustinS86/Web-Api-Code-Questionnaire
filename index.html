@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <section id = "score-total" style="display: none">
+    <input  type="button" value="View High Scores" onclick ="view_high_scores"()></br>
+    score: <var id ="score"></var>
+    </section>
     <section class="high-scores"><a href="highscore.html">View Highscores</a></section>
 
     <section class="timer"> Time Left: <span id="time-left">0</span></section>
@@ -20,6 +24,24 @@
             <p>Let's test your knowledge of coding. Please keep in mind that wrong answers
                 will penalize you by taking 15 seconds. Good Luck!</p>
             <button id="start-test">Start Test</button>
+        </section>
+
+        <section id="questionnaire" style="display: none;">
+            <h2 id="question-list"></h2>
+            <ul>
+                <div id="choice">
+                    <button id="choices0"></button>
+                </div>
+                <div>
+                    <button id="choices1"></button>
+                </div>
+                <div>
+                    <button id="choices2"></button>
+                </div>
+                <div>
+                    <button id="choices3"></button>
+                </div>
+            </ul>
         </section>
 
 
