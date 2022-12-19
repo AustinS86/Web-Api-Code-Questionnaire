@@ -10,23 +10,25 @@
 </head>
 
 <body>
-    <section id = "score-total" style="display: none">
-    <input  type="button" value="View High Scores" onclick ="view_high_scores"()></br>
-    score: <var id ="score"></var>
+    <header>
+    <section id="score-total" style="display: none">
+        <input id="viewHS"  type="button" value="View High Scores" click="view-high-scores()"></br>
+        Score: <var id="score"></var>
     </section>
-    <section class="high-scores"><a href="highscore.html">View Highscores</a></section>
 
-    <section class="timer"> Time Left: <span id="time-left">0</span></section>
+    <section id="countdownTimer" style="display:none"> Time Left: <span id="time-left"></span></section>
+    </header>
 
-    <section class="main-screen">
-        <section id="start-page" class="start">
-            <h1>Coding Questionnaire</h1>
+    <container>  
+    <section id="mainscreen" class="none"style= "display:block"> 
+            <h1>Coding Questionnaire!</h1>
             <p>Let's test your knowledge of coding. Please keep in mind that wrong answers
                 will penalize you by taking 15 seconds. Good Luck!</p>
-            <button id="start-test">Start Test</button>
+            <button id="startBtn">Start Test</button>
         </section>
+    </container>
 
-        <section id="questionnaire" style="display: none;">
+        <section id="questionnaire" style="display: none">
             <h2 id="question-list"></h2>
             <ul>
                 <div id="choice">
@@ -43,12 +45,24 @@
                 </div>
             </ul>
         </section>
-
-
-
-
-        <script src="Assets\questions.js"></script>
-        <script src="Assets\script.js"></script>
 </body>
+<section id="Answer"></section>
 
+        <section id="end" style="display:none">
+            <h2> It's Over!</h2>
+            Score: <var id="final-score"></var>
+            </br>
+            Name: <input type="text" value="name" id="name">
+            </br>
+            <input type="button" value="submit" id="submit-name" click="submit-name()">
+        </section>
+
+        <section id="view-high-scores" style="display:none">
+            <h2>View Highscores<h2>
+                <div id="high-scores"></div>
+                <input id="home"  type="button"value="Home" id="home" click="home()">
+                <button id="clear"> Clear Scores</button>
+        </section>
+
+<script src="Assets\script.js"></script>
 </html>
