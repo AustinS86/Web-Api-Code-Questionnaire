@@ -1,3 +1,4 @@
+//My var that will be used throughout the JS
 var startBtn = document.getElementById("startBtn");
 var time = 60;
 var timeLeft = true;
@@ -10,12 +11,13 @@ var choices1 = document.getElementById("choices1");
 var choices2 = document.getElementById("choices2");
 var choices3 = document.getElementById("choices3");
 var correctAnswer = document.getElementById("correctanswer");
+var submitBtn = document.getElementById('submit-name');
 var highScores = [];
 var output = "";
 var score = 0;
 var i = 0;
 
-
+//
 var countdownTimerInterval = setInterval(setcountdownTimer, 1000);
 function setcountdownTimer() {
     if (timeStart)
@@ -26,7 +28,7 @@ function setcountdownTimer() {
     }
     document.getElementById("time-left").innerHTML = time;
 }
-
+// The questions that will be asked during the test
 var questions = [
 
     {
@@ -59,10 +61,9 @@ var questions = [
     },
 
 ]
-
+//Starts the questions as soon as you press start
 startBtn.addEventListener("click", function(){
     questionnaire.style.display = "block";
-    //mainscreen.style.display = "none";//
     countdownTimer.style.display = "block";
     document.getElementById("score-total").style.display = "block";
     document.getElementById("score").innerHTML = score;
@@ -78,7 +79,7 @@ function setQuestionnairequestions() {
     choices2.textContent = questions[i].choices[2];
     choices3.textContent = questions[i].choices[3];
 };
-
+// The events that will take place and will choose if it was a wrong answer or a correct one.
 choices0.addEventListener("click", function (event) {
     event.stopPropagation();
     correctAnswer = questions[i].correctAnswer;
@@ -216,9 +217,41 @@ function end_questions() {
     document.getElementById("final-score").innerHTML = score;
 }
 
+submitBtn.addEventListener('click', function() {
+    console.log("Submitted Score")
+   
+    
+    
+    // grab the currently stored data
+    let currentData = localStorage.getItem('highscores');
+    console.log(currentData);
+    console.log(typeof currentData);  
+    
+    // convert to JS obj
+    let jsCurrent = JSON.parse(currentData)
+    console.log(jsCurrent);
+    console.log(typeof jsCurrent);
+    
+    
+    var newScore = {
+        name: document.getElementById("name").value,
+        score: score
+    }
+    jsCurrent.push(newScore);
+    // verify that we have JS OBJ data
+    console.log("Scores:", jsCurrent);
+    
+
+
+    
+
+    // update localStorage
+    localStorage.setItem('highscores', JSON.stringify(jsCurrent))
+
+})
+
 function submit_score() {
-    highScores.push(document.getElementById("name").value + "" + score);
-    view_high_scores();
+    
 }
 
 document.getElementById("questionnaire").style.display = "none";
@@ -232,11 +265,6 @@ for (let i = 0; i < highScores.length; i++) {
 document.getElementById("high-scores").innerHTML = output;
 clear();
 
-function home() {
-    document.getElementById("view-high-scores").style.display = "none";
-    document.getElementById("mainscreen").style.display = "block";
-    clear();
-}
 
 function clear_sc() {
     highScores = [];
@@ -248,4 +276,11 @@ function clear() {
     timeStart - false;
     i = 0
     score = 0;
+}
+
+// Lets you grab the stored data
+var storedData = localStorage.getItem('highscores');
+
+if(!storedData) {
+    localStorage.setItem('highscores', "[]");
 }

@@ -20,7 +20,7 @@
     </header>
 
     <container>  
-    <section id="mainscreen" class="none"style= "display:block"> 
+    <section id="mainscreen" class="none" style= "display:block"> 
             <h1>Coding Questionnaire!</h1>
             <p>Let's test your knowledge of coding. Please keep in mind that wrong answers
                 will penalize you by taking 15 seconds. Good Luck!</p>
@@ -52,16 +52,16 @@
             <h2> It's Over!</h2>
             Score: <var id="final-score"></var>
             </br>
-            Name: <input type="text" value="name" id="name">
+            Name: <input type="text"  id="name">
             </br>
-            <input type="button" value="submit" id="submit-name" click="submit-name()">
+            <input type="button" value="submit" id="submit-name" click="submit_score()">
         </section>
 
         <section id="view-high-scores" style="display:none">
             <h2>View Highscores<h2>
                 <div id="high-scores"></div>
-                <input id="home"  type="button"value="Home" id="home" click="home()">
-                <button id="clear"> Clear Scores</button>
+                <a href="index.html"><button>Home</button></a>
+                <button id="clear">Clear Scores</button>
         </section>
 
 <script src="Assets\script.js"></script>
